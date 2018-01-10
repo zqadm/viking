@@ -155,8 +155,8 @@ def instancelist(req):#主机列表信息
         instance_list = json.loads(instances)['Instances']['Instance']
         for ins in instance_list:
             ins['LocalName'] = localName;
-            print instance_list;
+            #print instance_list;
         return render(req, 'manage/cmdb/ali_hosts.html', locals())
     else:
-        asset_list = Instance.objects.all()[:50]
-        return render(req, 'manage/cmdb/instance.html', locals())
+        instance_list = Instance.objects.all()[:50]
+        return render(req, 'manage/cmdb/local_instance.html', locals())
